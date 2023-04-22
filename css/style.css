@@ -1,0 +1,230 @@
+/*reset*/
+
+/*banner*/
+.banner {
+  background-image: url(./img/banner.jpg);
+  height: 598px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
+  background-attachment: fixed;
+}
+/*end*/
+
+/*banner hover*/
+span {
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+h5 {
+  transition: all 1.2s ease-in-out 100ms;
+}
+h5 span {
+  transition: all 3.2s ease-in-out;
+}
+
+.banner hr {
+  width: 100%;
+  color: rgb(0, 0, 0);
+  font-weight: 900;
+  /* transition: width .3s .3s; */
+}
+/* .banner:hover hr {
+  width: 100%;
+}  */
+
+.banner span:hover {
+  cursor: default;
+  color: rgba(252, 125, 34, 0.8);
+}
+.banner h5:hover {
+  cursor: default;
+  color: rgba(252, 125, 34, 0.8);
+}
+.banner:hover a {
+  transition: all 1s ease-in-out 100ms;
+}
+/*end*/
+
+/*banner 跳動字*/
+.letter {
+  display: inline-block;
+  margin-left: 3px;
+  margin-top: 0.5em;
+  font-weight: 500;
+  animation: bounce 0.75s cubic-bezier(0.05, 0, 0.2, 1) infinite alternate;
+  font: normal 500 2rem "Varela Round", sans-serif;
+}
+.letter:nth-child(1) {
+  animation-delay: 0s;
+}
+.letter:nth-child(2) {
+  animation-delay: 0.3333333333s;
+}
+.letter:nth-child(3) {
+  animation-delay: 0.6333333333s;
+}
+@keyframes bounce {
+  from {
+    transform: translate3d(0, 0, 0);
+    text-shadow: rgba(0, 0, 0, 0.5) 0 0 0.05em;
+  }
+  to {
+    transform: translate3d(0, -1em, 0);
+    text-shadow: rgb(0, 0, 0, 0.5) 0 1em 0.35em;
+  }
+}
+/*手機隱藏箭頭*/
+/* @media screen and (max-width: 576px) {
+  .down{
+    display: none;
+  }
+} */
+
+/*手機漸變顏色動畫*/
+/* @media screen and (max-width: 576px) {
+  .letter {
+    display: inline-block;
+    margin-left: 3px;
+    margin-top: 0.5em;
+    font-weight: 500;
+    animation: bounce_gradient 0.75s cubic-bezier(0.05, 0, 0.2, 1) infinite
+      alternate;
+    font: normal 500 2rem "Varela Round", sans-serif;
+  }
+} */
+/* @keyframes bounce_gradient {
+  from {
+    transform: translate3d(0, 0, 0);
+    color: rgba(252, 125, 34, 1);
+    text-shadow: rgb(0, 0, 0, 0.5) 0 0 0.05em;
+    opacity: 0.8;
+  }
+  to {
+    transform: translate3d(0, -1em, 0);
+    color: rgba(255, 255, 255, 1);
+    text-shadow: rgb(0, 0, 0, 0.5) 0 1em 0.35em;
+    opacity: 0.8;
+  }
+} */
+/*end*/
+
+/*section*/
+.section-content {
+  padding-top: 30px;
+  padding-bottom: 80px;
+}
+.title-wrap {
+  text-align: center;
+}
+.title-wrap p:nth-of-type(1) {
+  letter-spacing: 4px;
+}
+.title-wrap p:nth-of-type(2) {
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+section .img_wrap {
+  /* height: 220px;
+  overflow: hidden; */
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.16);
+}
+section .img_wrap:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.24);
+}
+/*end*/
+
+/*字體*/
+@font-face {
+  font-family: only;
+  src: url("./font/唯独你是不可取替.ttf");
+}
+@font-face {
+  font-family: drunk;
+  src: url("./font/别喝醉别流泪.ttf");
+}
+@font-face {
+  font-family: Jason2;
+  src: url("./font/JasonHandwriting2.ttf");
+}
+/*end*/
+
+/*img text 隱藏*/
+.img_wrap {
+  position: relative;
+}
+.img_wrap .card-body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.img_wrap .card-body {
+  opacity: 0;
+  transition: 0.6s;
+}
+.img_wrap:hover .card-body {
+  opacity: 1;
+  backdrop-filter: blur(5px);
+}
+/* @media screen and (max-width: 576px) {
+  .img_wrap .card-body {
+    opacity: 1;
+  }
+} */
+
+/*顯示文字下方的進度條*/
+/* .img_wrap h3::after{
+  content: '';
+  display: block;
+  width: 0%;
+  border-bottom: 2px solid rgba(252, 125, 34, 0.3);
+  transition: width .5s .5s;
+}
+
+.img_wrap:hover h3::after {
+  width: 100%;
+} */
+
+/*section end*/
+
+/*footer*/
+footer {
+  background-image: url(./img/banner.jpg);
+  height: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
+  background-attachment: fixed;
+  text-align: center;
+}
+
+footer .container {
+  height: 100%;
+  color: white;
+  padding: 35px 0;
+}
+
+footer input {
+  max-width: 200px;
+  margin: 0 auto;
+  background-color: transparent;
+}
+footer .container .row nav a {
+  transition: all 0.5s ease-in;
+  color: rgba(252, 125, 34, 0.6);
+}
+footer .container .row nav a:hover {
+  text-shadow: rgb(0, 0, 0, 1) 0 0 0.9em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+footer .container input {
+  transition: all 1s ease-in-out 100ms;
+}
+footer .container button {
+  transition: all 1s ease-in-out 100ms;
+}
+/*end*/
