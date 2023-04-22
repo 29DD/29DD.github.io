@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>慢生活</title>
+    <!--meta 頁面描述-->
+    <!--charset 指定網頁編碼,避免亂碼-->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!--viewport 定義 mobile device-->
+    <!--width=device-width 螢幕寬度為裝置寬度-->
+    <!--initial-scale=1 手機螢幕畫面的初始縮放比例為 100%(縮放比為1)-->
+    <!--title 顯示搜尋的標題-->
+    <meta name="description" content="用心感受生活中的事物" />
+    <!--description 網頁的描述,content="這裡的文字會顯示在搜索後的結果呈現"-->
+    <!-- <mata name="robots" content="index, follow" /> -->
+    <!--robots 命令搜尋引擎-->
+    <!--index 搜尋引擎能找到該頁面-->
+    <!--follow 搜尋引擎可以從該頁面找到連結繼續往下-->
+    <meta name="author" content="東東" />
+    <!--author作者-->
+    <base target="_self" />
+    <!--target="_blank"連結開啟新的分頁 所有-->
+    <!--Page Icon goes here-->
+    <link rel="icon" href="./icon/slow.ico" />
+    <!--shortcut icon 網址前面列出 icon-->
+    <link rel="bookmark" href="./icon/slow.ico" />
+    <!--bookmark 圖示呈現在書籤或我的最愛當中-->
+    <link rel="stylesheet" href="./product.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+      crossorigin="anonymous" />
+    <!--fontawesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <!--AOS-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- headers -->
+    <nav class="navbar sticky-top navbar-light">
+      <div class="container-fluid">
+        <a style="font-family: 'only'" class="navbar-brand" href="./index.html">
+          慢生活
+        </a>
+
+        <!-- 購物車內的數量(Button 內包含 icon, 數量 badge)-->
+        <div class="dropdown ml-auto">
+          <button
+            class="btn btn-sm btn-cart position-relative me-3"
+            data-bs-toggle="dropdown"
+            data-flip="false">
+            <i class="fas fa-shopping-cart" style="font-size: 24px"></i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-badge">
+              0</span
+            >
+          </button>
+          <div class="dropdown-menu dropdown-menu-end" style="min-width: 300px">
+            <div class="px-4 py-3">
+              <h6>已選擇商品</h6>
+              <table class="table table-sm">
+                <tbody id="cart-items">
+                  <!-- <tr>
+                    <tr>
+                    <td class="align-middle text-center">
+                      <a
+                        href="#removeModal"
+                        class="text-muted"
+                        data-bs-toggle="modal"
+                        data-bs-target="#removeModal"
+                        data-title="刪除 鬧鐘 1 件">
+                        <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                      </a>
+                    </td>
+                    <td class="align-middle">鬧鐘</td>
+                    <td class="align-middle">1 件</td>
+                    <td class="align-middle text-right">$520</td>
+                  </tr>
+                  <tr>
+                    <td class="align-middle text-center">
+                      <a
+                        href="#removeModal"
+                        class="text-muted"
+                        data-bs-toggle="modal"
+                        data-bs-target="#removeModal"
+                        data-title="刪除 帽T 1 件">
+                        <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                      </a>
+                    </td>
+                    <td class="align-middle">帽T</td>
+                    <td class="align-middle">1 件</td>
+                    <td class="align-middle text-right">$480</td>
+                  </tr> -->
+                </tbody>
+              </table>
+              <p class="align-middle text-right" id="totalPrice">總金額：</p>
+              <a
+                href="shoppingCart-checkout.html"
+                class="btn btn-secondary d-block"
+                data-bs-toggle="modal"
+                data-bs-target="#editModal"
+                data-title="結帳去">
+                <i class=" " aria-hidden="true"></i> 結帳去
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- headers end -->
+
+    <!-- banner -->
+    <div class="p-5 mb-4 bg-light rounded-1 banner d-flex align-items-end">
+      <div class="container py-5 bg_word">
+        <h1 class="display-5" style="font-family: 'only'">慢生活</h1>
+        <p class="col-md-8 fs-4" style="font-family: 'drunk'">
+          生活美好来自、你所喜欢的
+        </p>
+      </div>
+    </div>
+    <!-- banner  end-->
+
+    <!-- 產品列表 card -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mb-3" style="font-family: 'drunk'">
+          <div 
+          data-aos="fade-right"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+          data-aos-easing="ease-in-sine"
+          id="remove_sticky" class="list-group sticky-top box_shadow ">
+            <a
+              href="#all"
+              class="all list-group-item list-group-item-action"
+              aria-current="true"
+              data-bs-toggle="list"style="font-family: 'only'"
+              >
+              <i class="fas fa-th me-3"></i>全部
+            </a>
+            <a
+              href="#life"
+              class="life list-group-item list-group-item-action "
+              aria-current="true"
+              data-bs-toggle="list"style="font-family: 'only'">
+              <i class="fas fa-pen  me-3"></i>生活用品
+            </a>
+            <a
+              href="#clothes"
+              class="clothes list-group-item list-group-item-action"
+              data-bs-toggle="list"style="font-family: 'only'"
+              ><i class="fa-solid fa-socks me-3"></i>衣服</a
+            >
+            <a
+              href="#tea"
+              class="tea list-group-item list-group-item-action"
+              data-bs-toggle="list"style="font-family: 'only'"
+              ><i class="fas fa-mug-hot me-3" ></i>茶</a
+            >
+            <a
+              href="#delicacies"
+              class="delicacies list-group-item list-group-item-action"
+              data-bs-toggle="list"style="font-family: 'only'"
+              ><i class="fas fa-bone me-3"></i>美食</a
+            >
+            <a
+              href="#pane-6"
+              class="list-group-item list-group-item-action disabled"
+              data-bs-toggle="list"
+              aria-disabled="true"style="font-family: 'only'">
+              <i class="fab fa-youtube me-3"></i>A disabled link item</a
+            >
+          </div>
+        </div>
+        <div class="col-md-9" >
+          <div class="tab-content">
+            <div class="tab-pane" id="all">
+              <!-- <div class="card-group"> -->
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <div class="card box_shadow border-0 text-center h-100">
+                    <div
+                      class="box d-flex justify-content-center align-items-center">
+                      <img
+                        class="card-img-top"
+                        src="./img/sock.jpg"
+                        alt="..." />
+                    </div>
+                    <div class="card-body" >
+                      <h5 class="card-title" style="font-family: 'Jason2'" data-title="襪子">襪子</h5>
+                      <span style="font-family: 'Jason2'" data-price="$520">$520</span>
+                      <p class="card-text"id="style-3">
+                        襪子是一種日常必需品，既保暖又時尚。
+                        我們提供各種顏色和材質的襪子，例如棉質、羊毛和絲質等，以滿足您的各種需求。
+                        我們的襪子具有優質的透氣性和耐穿性，可以保護您的腳部健康。
+                        嘗試我們的襪子，感受舒適和溫暖。
+                      </p>
+                    </div>
+                    <div class="card-footer border-top-0 bg-transparent d-flexalign-items-center">
+                      <div class="btn-group btn-group-sm mb-2 w-50 mb-3">
+                        <a href="#" class="btn btn-outline-secondary">SM</a>
+                        <a href="#" class="btn btn-outline-secondary disabled">M</a>
+                        <a href="#" class="btn btn-outline-secondary">XL</a>
+                      </div>
+                      <div><a href="" class="btn btn-outline-secondary add-to-cart-btn">購買去</a></div>
+                    </div>
+                  </div>
+                </div>
+                <!--end-->
+                <!--2-->
+                <div class="col-12 col-md-6">
+                  <div class="card box_shadow border-0 text-center h-100">
+                    <div
+                      class="box d-flex justify-content-center align-items-center">
+                      <img
+                        class="card-img-top"
+                        src="./img/sofa.jpg"
+                        alt="..." />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title" style="font-family: 'Jason2'" data-title="沙發">沙發</h5>
+                      <span style="font-family: 'Jason2'" data-price="$1520">$1520</span>
+                      <p class="card-text"id="style-3">
+                        沙發是家居裝飾中不可缺少的重要元素。
+                        我們提供各種樣式、顏色和材質的沙發，例如皮革、布藝和織物等，以滿足您的各種需求。
+                        我們的沙發具有舒適的坐感和耐用的品質，可以作為您家居的焦點，為您帶來舒適的生活體驗。
+                        請選擇我們的沙發，享受家的溫馨。
+                      </p>
+                    </div>
+                    <div class="card-footer border-top-0 bg-transparent">
+                      <a href="" class="btn btn-outline-secondary add-to-cart-btn">購買去</a>
+                    </div>
+                  </div>
+                </div>
+                <!--end-->
+                <!--3-->
+                <div class="col-12 col-md-6">
+                  <div class="card box_shadow border-0 text-center h-100">
+                    <div
+                      class="box d-flex justify-content-center align-items-center">
+                      <img
+                        class="card-img-top"
+                        src="./img/tea_set.jpg"
+                        alt="..." />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title" style="font-family: 'Jason2'" data-title="茶具組">茶具組</h5>
+                      <span style="font-family: 'Jason2'" data-price="$220">$220</span>
+                      <p class="card-text"id="style-3">
+                        茶具組是一組完整的茶具，包括茶壺、茶杯、茶盤等。
+                        我們提供各種設計和材質的茶具組，例如瓷器、陶瓷和不鏽鋼等，以滿足您的各種需求。
+                        我們的茶具組具有精美的外觀和實用的品質，可以用於日常飲茶和宴會等場合。
+                        選擇我們的茶具組，享受一場完美的茶道體驗。
+                      </p>
+                    </div>
+                    <div class="card-footer border-top-0 bg-transparent">
+                      <a href="" class="btn btn-outline-secondary add-to-cart-btn">購買去</a>
+                    </div>
+                  </div>
+                </div>
+                <!--end-->
+                <!--4-->
+                <div class="col-12 col-md-6">
+                  <div class="card box_shadow border-0 text-center h-100">
+                    <div
+                      class="box d-flex justify-content-center align-items-center">
+                      <img
+                        class="card-img-top"
+                        src="./img/bamboo_chair.jpg"
+                        alt="..." />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title" style="font-family: 'Jason2'" data-title="木椅">木椅</h5>
+                      <span style="font-family: 'Jason2'" data-price="$1320">$1320</span>
+                      <p class="card-text"id="style-3">
+                        木椅是一種經典的傢俱元素。
+                        我們提供各種設計和材質的木椅，例如木質、塑膠和金屬等，以滿足您的各種需求。
+                        我們的木椅具有簡潔的外觀和穩固的結構，可以在家中、餐廳、辦公室等場合使用。
+                        選擇我們的木椅，享受其簡單而實用的設計。
+                      </p>
+                    </div>
+                    <div class="card-footer border-top-0 bg-transparent">
+                      <a href="" class="btn btn-outline-secondary add-to-cart-btn">購買去</a>
+                    </div>
+                  </div>
+                </div>
+                <!--end-->
+                <!--5-->
+                <div class="col-12 col-md-6">
+                  <div class="card box_shadow border-0 text-center h-100">
+                    <div
+                    class="box d-flex justify-content-center align-items-center"
+                   >
+                    <img
+                      class="card-img-top"
+                      src="./img/cake.jpg"
+                      alt="..." />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title" style="font-family: 'Jason2'" data-title="草莓蛋糕">草莓蛋糕</h5>
+                      <span style="font-family: 'Jason2'" data-price="$320">$320</span>
+                      <p class="card-text"id="style-3">
+                        草莓蛋糕是一種經典的甜點。
+                        我們使用新鮮的草莓和高品質的配料製作草莓蛋糕，其軟綿的蛋糕體和鮮甜的草莓搭配，帶給您無與倫比的味覺享受。
+                        我們的草莓蛋糕可以作為生日蛋糕、宴會甜點等場合的理想選擇。
+                        請選擇我們的草莓蛋糕，享受甜美的生活。
+                      </p>
+                    </div>
+                    <div class="card-footer border-top-0 bg-transparent">
+                      <a href="" class="btn btn-outline-secondary add-to-cart-btn">購買去</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+            </div>
+
+            <div class="tab-pane" id="life">
+              <div class="card-group">
+                <div class="row g-3">
+                  <!--2-->
+                  <div class="col-12 col-md-6">
+                    <div class="card box_shadow border-0 text-center h-100">
+                      <div
+                      class="box d-flex justify-content-center align-items-center"
+                     >
+                      <img
+                        class="card-img-top"
+                        src="./img/sofa.jpg"
+                        alt="..." />
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-family: 'Jason2'" data-title="沙發">沙發</h5>
+                        <span style="font-family: 'Jason2'" data-price="$2320">$2320</span>
+                        <p class="card-text"id="style-3">
+                          沙發是家居裝飾中不可缺少的重要元素。
+                          我們提供各種樣式、顏色和材質的沙發，例如皮革、布藝和織物等，以滿足您的各種需求。
+                          我們的沙發具有舒適的坐感和耐用的品質，可以作為您家居的焦點，為您帶來舒適的生活體驗。
+                          請選擇我們的沙發，享受家的溫馨。
+                        </p>
+                      </div>
+                      <div class="card-footer border-top-0 bg-transparent">
+                        <a href="" class="btn btn-outline-secondary add-to-cart-btn">購買去</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end-->
+                  <!--4-->
+                  <div class="col-12 col-md-6">
+                    <div class="card box_shadow border-0 text-center h-100">
+                      <div
+                      class="box d-flex justify-content-center align-items-center"
+                     >
+                      <img
+                        class="card-img-top"
+                        src="./img/bamboo_chair.jpg"
+                        alt="..." />
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-family: 'Jason2'" data-title="木椅">木椅</h5>
+                        <span style="font-family: 'Jason2'" data-price="$1320">$1320</span>
+                        <p class="card-text"id="style-3">
+                          木椅是一種經典的傢俱元素。
+                          我們提供各種設計和材質的木椅，例如木質、塑膠和金屬等，以滿足您的各種需求。
+                          我們的木椅具有簡潔的外觀和穩固的結構，可以在家中、餐廳、辦公室等場合使用。
+                          選擇我們的木椅，享受其簡單而實用的設計。
+                        </p>
+                      </div>
+                      <div class="card-footer border-top-0 bg-transparent">
+                        <a href="" class="btn btn-outline-secondary add-to-cart-btn">購買去</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end-->
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="clothes">
+              <div class="card-group">
+                <div class="row g-3">
+                  <!--1-->
+                  <div class="col-12 col-md-6">
+                    <div class="card box_shadow border-0 text-center h-100">
+                      <div
+                      class="box d-flex justify-content-center align-items-center"
+                     >
+                      <img
+                        class="card-img-top"
+                        src="./img/sock.jpg"
+                        alt="..." />
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-family: 'Jason2'" data-title="襪子">襪子</h5>
+                        <span style="font-family: 'Jason2'" data-price="$520">$520</span>
+                        <p class="card-text"id="style-3">
+                          襪子是一種日常必需品，既保暖又時尚。
+                          我們提供各種顏色和材質的襪子，例如棉質、羊毛和絲質等，以滿足您的各種需求。
+                          我們的襪子具有優質的透氣性和耐穿性，可以保護您的腳部健康。
+                          嘗試我們的襪子，感受舒適和溫暖。
+                        </p>
+                      </div>
+                      <div class="card-footer border-top-0 bg-transparent">
+                        <a href="" class="btn btn-outline-secondary add-to-cart-btn">購買去</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end-->
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tea">
+              <div class="card-group">
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <div class="card box_shadow border-0 text-center h-100">
+                      <div
+                      class="box d-flex justify-content-center align-items-center"
+                     >
+                      <img
+                        class="card-img-top"
+                        src="./img/tea_set.jpg"
+                        alt="..." />
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-family: 'Jason2'" data-title="茶具組">茶具組</h5>
+                        <span style="font-family: 'Jason2'" data-price="$220">$220</span>
+                        <p class="card-text"id="style-3">
+                          茶具組是一組完整的茶具，包括茶壺、茶杯、茶盤等。
+                          我們提供各種設計和材質的茶具組，例如瓷器、陶瓷和不鏽鋼等，以滿足您的各種需求。
+                          我們的茶具組具有精美的外觀和實用的品質，可以用於日常飲茶和宴會等場合。
+                          選擇我們的茶具組，享受一場完美的茶道體驗。
+                        </p>
+                      </div>
+                      <div class="card-footer border-top-0 bg-transparent">
+                        <a href="" class="btn btn-outline-secondary add-to-cart-btn">購買去</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="delicacies">
+              <div class="card-group">
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <div class="card box_shadow border-0 text-center h-100">
+                      <div
+                      class="box d-flex justify-content-center align-items-center"
+                     >
+                      <img
+                        class="card-img-top"
+                        src="./img/cake.jpg"
+                        alt="..." />
+                      </div>
+                      <div class="card-body">
+                        <h5 class="card-title" style="font-family: 'Jason2'" data-title="草莓蛋糕">草莓蛋糕</h5>
+                        <span style="font-family: 'Jason2'" data-price="$320">$320</span>
+                        <p class="card-text"id="style-3">
+                          草莓蛋糕是一種經典的甜點。
+                          我們使用新鮮的草莓和高品質的配料製作草莓蛋糕，其軟綿的蛋糕體和鮮甜的草莓搭配，帶給您無與倫比的味覺享受。
+                          我們的草莓蛋糕可以作為生日蛋糕、宴會甜點等場合的理想選擇。
+                          請選擇我們的草莓蛋糕，享受甜美的生活。
+                        </p>
+                      </div>
+                      <div class="card-footer border-top-0 bg-transparent">
+                        <a href="" class="btn btn-outline-secondary add-to-cart-btn">購買去</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- card end -->
+    <footer class="footer mt-3"></footer>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="editModal"
+      data-bs-backdrop="static"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" style="font-family: 'Jason2';" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body"style="font-family: 'Jason2';" >確認結帳嗎？</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+             關閉
+            </button>
+          
+            <a href="./shoppingCart-checkout.html"><button type="button" class="btn btn-primary">確認</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+
+
+    <!-- Modal delete-->
+    <div
+      class="modal fade"
+      id="removeModal"
+      data-bs-backdrop="static"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title" style="font-family: 'Jason2';" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body"style="font-family: 'Jason2';" >確認刪除嗎？</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              關閉
+            </button>
+            <button type="button" class="btn btn-outline-danger" data-dismiss="modal" id="confirmBtn">
+              確認
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+     
+
+    <!--bootstrap-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+      crossorigin="anonymous"></script>
+    <!--AOS-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Main JS -->
+    <script src="./JS/all.js"></script>
+    <script src="./JS/shopping.js"></script>
+
+    <!-- Main JS  end-->
+  </body>
+</html>
