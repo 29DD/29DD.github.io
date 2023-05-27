@@ -2,7 +2,7 @@
 
 /*banner*/
 .banner {
-  background-image: url(./img/banner.jpg);
+  background-image: url(../img/banner.jpg);
   height: 598px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -139,15 +139,15 @@ section .img_wrap:hover {
 /*字體*/
 @font-face {
   font-family: only;
-  src: url("./font/唯独你是不可取替.ttf");
+  src: url("../font/唯独你是不可取替.ttf");
 }
 @font-face {
   font-family: drunk;
-  src: url("./font/别喝醉别流泪.ttf");
+  src: url("../font/别喝醉别流泪.ttf");
 }
 @font-face {
   font-family: Jason2;
-  src: url("./font/JasonHandwriting2.ttf");
+  src: url("../font/JasonHandwriting2.ttf");
 }
 /*end*/
 
